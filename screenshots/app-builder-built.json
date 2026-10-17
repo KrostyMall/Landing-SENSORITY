@@ -1,0 +1,38 @@
+{
+  "url": "http://127.0.0.1:8081/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "SENSORITY — пазл в прыжке",
+      "hasCanvas": false,
+      "bodyTextLen": 1122,
+      "bodyTextHash": "ba5b28f8e596386fd09714972e0a34facf05e1d4965cedd9f4e83e70b913989b",
+      "bodyTextPrefix": "SENSORITY лицензия 350 ₽ Решаешь пазл, не сбавляя бег Хватит выб",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "SENSORITY — пазл в прыжке",
+      "hasCanvas": false,
+      "bodyTextLen": 1122,
+      "bodyTextHash": "ba5b28f8e596386fd09714972e0a34facf05e1d4965cedd9f4e83e70b913989b",
+      "bodyTextPrefix": "SENSORITY лицензия 350 ₽ Решаешь пазл, не сбавляя бег Хватит выб",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-built.json",
+  "divergesFromBaseline": false,
+  "baselineReasons": []
+}

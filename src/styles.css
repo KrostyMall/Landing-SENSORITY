@@ -1,0 +1,309 @@
+@import "tailwindcss";
+@import "@fontsource/unbounded/cyrillic-500.css";
+@import "@fontsource/unbounded/latin-500.css";
+@import "@fontsource/unbounded/cyrillic-700.css";
+@import "@fontsource/unbounded/latin-700.css";
+@import "@fontsource/manrope/cyrillic-400.css";
+@import "@fontsource/manrope/latin-400.css";
+@import "@fontsource/manrope/cyrillic-500.css";
+@import "@fontsource/manrope/latin-500.css";
+@import "@fontsource/manrope/cyrillic-600.css";
+@import "@fontsource/manrope/latin-600.css";
+
+@theme {
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Unbounded", "Manrope", ui-sans-serif, sans-serif;
+  --color-bg: #0b0c0f;
+  --color-surface: #16181e;
+  --color-surface-2: #22262f;
+  --color-fg: #f3f0e8;
+  --color-muted: #b7b2a8;
+  --color-line: #2c3038;
+  --color-accent: #ff5c2a;
+  --color-accent-fg: #1a0904;
+  --radius-sm: 0.125rem;
+  --radius-md: 0.25rem;
+}
+
+@layer base {
+  html {
+    height: 100%;
+    overflow: hidden;
+    scroll-behavior: auto;
+  }
+
+  body {
+    height: 100%;
+    overflow: hidden;
+    background: var(--color-bg);
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+    text-rendering: optimizeLegibility;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+
+  ::selection {
+    background: var(--color-accent);
+    color: var(--color-accent-fg);
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .slab,
+  .pawn {
+    animation: none;
+  }
+
+  .slab {
+    transform: translate3d(10%, -8%, 78px) rotateZ(-6deg);
+  }
+
+  .pawn {
+    transform: translate3d(92px, -46px, 120px);
+  }
+}
+
+.diorama {
+  height: 100%;
+  min-height: 0;
+  perspective: 720px;
+  overflow: hidden;
+}
+
+.stage {
+  position: absolute;
+  inset: 8% 6% 14%;
+  transform-style: preserve-3d;
+  transform: rotateX(60deg) rotateZ(-36deg);
+}
+
+.ground,
+.block,
+.slab,
+.pawn {
+  position: absolute;
+  transform-style: preserve-3d;
+}
+
+.ground {
+  inset: 8% 0 0;
+  background-color: color-mix(in oklab, var(--color-surface) 55%, var(--color-bg));
+  background-image:
+    linear-gradient(to right, var(--color-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--color-line) 1px, transparent 1px);
+  background-size: 14% 22%;
+  transform: translateZ(0);
+}
+
+.block {
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+}
+
+.block::after,
+.slab::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 16px;
+  transform-origin: top center;
+  transform: rotateX(-90deg);
+}
+
+.block::after {
+  background: color-mix(in oklab, var(--color-surface) 62%, black);
+}
+
+.block-low {
+  top: 54%;
+  left: 2%;
+  width: 44%;
+  height: 32%;
+  transform: translateZ(26px);
+}
+
+.block-high {
+  top: 16%;
+  left: 54%;
+  width: 40%;
+  height: 30%;
+  transform: translateZ(78px);
+}
+
+.slab {
+  top: 30%;
+  left: 30%;
+  width: 36%;
+  height: 18%;
+  background: color-mix(in oklab, var(--color-accent) 24%, var(--color-surface-2));
+  border: 2px solid var(--color-accent);
+  transform-origin: center center;
+  animation: slab-turn 5.6s cubic-bezier(0.45, 0.05, 0.2, 1) infinite;
+  animation-delay: -1.8s;
+}
+
+.slab::after {
+  background: var(--color-accent);
+}
+
+.pawn {
+  top: 62%;
+  left: 14%;
+  width: 16px;
+  height: 16px;
+  background: var(--color-accent);
+  animation: pawn-hop 5.6s cubic-bezier(0.45, 0.05, 0.2, 1) infinite;
+  animation-delay: -1.8s;
+}
+
+.pawn::after {
+  content: "";
+  position: absolute;
+  inset: 3px;
+  background: var(--color-accent-fg);
+}
+
+@keyframes slab-turn {
+  0%,
+  18% {
+    transform: translate3d(-8%, 22%, 28px) rotateZ(74deg);
+  }
+
+  40%,
+  76% {
+    transform: translate3d(10%, -8%, 78px) rotateZ(-6deg);
+  }
+
+  100% {
+    transform: translate3d(-8%, 22%, 28px) rotateZ(74deg);
+  }
+}
+
+@keyframes pawn-hop {
+  0%,
+  14% {
+    transform: translate3d(0, 0, 46px);
+    opacity: 1;
+  }
+
+  32% {
+    transform: translate3d(78px, -58px, 140px);
+    opacity: 1;
+  }
+
+  46%,
+  74% {
+    transform: translate3d(168px, -92px, 100px);
+    opacity: 1;
+  }
+
+  84% {
+    opacity: 0;
+  }
+
+  88% {
+    opacity: 0;
+    transform: translate3d(0, 0, 46px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 46px);
+  }
+}
+
+.hero-grid {
+  background-image:
+    linear-gradient(to right, color-mix(in oklab, var(--color-line) 85%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in oklab, var(--color-line) 85%, transparent) 1px, transparent 1px);
+  background-size: 4rem 4rem;
+  mask-image: linear-gradient(to bottom, black 10%, transparent 88%);
+}
+
+.buy {
+  background: var(--color-accent);
+  color: var(--color-accent-fg);
+  transition:
+    scale 150ms ease-out,
+    background-color 150ms ease-out;
+}
+
+.buy:hover {
+  background: color-mix(in oklab, var(--color-accent) 86%, black);
+}
+
+.buy:active {
+  scale: 0.96;
+}
+
+.buy:focus-visible,
+.field:focus-visible,
+.link-quiet:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.field::placeholder {
+  color: var(--color-muted);
+}
+
+.jump-slice .plat {
+  fill: var(--color-surface);
+  stroke: var(--color-line);
+  stroke-width: 1.5;
+}
+
+.jump-slice .cap {
+  fill: color-mix(in oklab, var(--color-fg) 14%, var(--color-surface));
+}
+
+.jump-slice .slab-body {
+  fill: color-mix(in oklab, var(--color-accent) 22%, var(--color-surface-2));
+  stroke: var(--color-accent);
+  stroke-width: 3;
+}
+
+.jump-slice .ghost {
+  fill: none;
+  stroke: var(--color-muted);
+  stroke-width: 1.5;
+  stroke-dasharray: 7 6;
+}
+
+.jump-slice .arc {
+  fill: none;
+  stroke: var(--color-muted);
+  stroke-width: 1.5;
+  stroke-dasharray: 2 9;
+  stroke-linecap: round;
+}
+
+.jump-slice .runner-body {
+  fill: var(--color-accent);
+}
+
+.jump-slice .runner-mark {
+  fill: var(--color-accent-fg);
+}
+
+.jump-slice .floor {
+  fill: none;
+  stroke: var(--color-line);
+  stroke-width: 1.5;
+}

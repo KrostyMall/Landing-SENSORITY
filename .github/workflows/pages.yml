@@ -46,7 +46,7 @@ jobs:
           rm -rf assets
           mkdir -p assets
           cp -R dist/assets/. assets/
-          cp dist/index.html ./index.html
+          cp dist/source.html ./index.html
           cp dist/favicon.svg dist/og.jpg .
           touch .nojekyll
 

@@ -56,15 +56,15 @@ export function App() {
   }
 
   return (
-    <main className="relative h-dvh overflow-hidden">
+    <main className="relative min-h-dvh overflow-x-hidden lg:h-dvh lg:min-h-0 lg:overflow-hidden">
       <div aria-hidden="true" className="hero-grid pointer-events-none absolute inset-0" />
-      <div className="relative mx-auto flex h-full max-w-6xl flex-col px-4 py-3 sm:px-6">
+      <div className="relative mx-auto flex min-h-dvh w-full max-w-6xl flex-col px-4 py-3 sm:px-6 lg:h-full lg:min-h-0">
         <header className="flex h-8 shrink-0 items-center justify-between gap-3">
           <p className="font-display text-xs font-medium tracking-wide sm:text-sm">Project: SENSORITY</p>
           <p className="shrink-0 text-xs tabular-nums text-muted sm:text-sm">3D · 350 ₽</p>
         </header>
 
-        <div className="mt-2 grid min-h-0 flex-1 grid-rows-[auto_minmax(0,1fr)_auto] gap-3 lg:grid-cols-2 lg:grid-rows-[minmax(0,1fr)_auto]">
+        <div className="mt-2 grid flex-1 grid-cols-1 gap-3 lg:min-h-0 lg:grid-cols-2 lg:grid-rows-[minmax(0,1fr)_auto]">
           <section className="self-center lg:col-start-1 lg:row-start-1">
             <h1 className="font-display text-2xl leading-none font-medium sm:text-4xl">
               Решаешь пазл, не сбавляя бег
@@ -85,7 +85,7 @@ export function App() {
             </p>
           </section>
 
-          <div className="min-h-0 lg:col-start-2 lg:row-start-1">
+          <div className="h-[clamp(15rem,62vw,21rem)] min-h-60 w-full sm:h-80 lg:col-start-2 lg:row-start-1 lg:h-auto lg:min-h-0">
             <JumpSlice />
           </div>
 

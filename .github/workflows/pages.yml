@@ -46,6 +46,15 @@ jobs:
           rm -rf assets
           mkdir -p assets
           cp -R dist/assets/. assets/
+          # Don't overwrite a newer source revision with an older build. A commit
+          # that only updates the compiled root files is safe to sync against.
+          git fetch origin main
+          if ! git diff --quiet "$GITHUB_SHA" origin/main -- source.html src package.json package-lock.json vite.config.ts public; then
+            echo "Source changed while this build was running; a newer run will publish it."
+            exit 0
+          fi
+          git reset --hard origin/main
+
           cp dist/source.html ./index.html
           cp dist/favicon.svg dist/og.jpg .
           touch .nojekyll

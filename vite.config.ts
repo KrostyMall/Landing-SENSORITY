@@ -3,8 +3,9 @@ import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
-  // Relative paths work both at the domain root and in a GitHub Pages project subpath.
-  base: "./",
+  // This repository is deployed at https://krostymall.github.io/Landing-SENSORITY/
+  // Keep the project path explicit so GitHub Pages can always resolve JS, CSS and fonts.
+  base: "/Landing-SENSORITY/",
   plugins: [react(), tailwindcss()],
   server: {
     host: "0.0.0.0",

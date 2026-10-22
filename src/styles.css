@@ -27,14 +27,14 @@
 
 @layer base {
   html {
-    height: 100%;
-    overflow: hidden;
+    min-height: 100%;
     scroll-behavior: auto;
   }
 
   body {
-    height: 100%;
-    overflow: hidden;
+    min-height: 100%;
+    margin: 0;
+    overflow-x: clip;
     background: var(--color-bg);
     color: var(--color-fg);
     font-family: var(--font-sans);
@@ -69,18 +69,23 @@
   }
 
   .slab {
-    transform: translate3d(10%, -8%, 78px) rotateZ(-6deg);
+    transform: translate3d(10%, -8%, 9cqw) rotateZ(-6deg);
   }
 
   .pawn {
-    transform: translate3d(92px, -46px, 120px);
+    transform: translate3d(18cqw, -14cqh, 8cqw);
   }
 }
 
 .diorama {
+  /* The level must be its own containing block: otherwise .stage is laid out
+     against the whole page and appears misplaced or clipped on small screens. */
+  position: relative;
+  isolation: isolate;
+  container-type: size;
   height: 100%;
   min-height: 0;
-  perspective: 720px;
+  perspective: clamp(420px, 115vw, 900px);
   overflow: hidden;
 }
 
@@ -88,7 +93,8 @@
   position: absolute;
   inset: 8% 6% 14%;
   transform-style: preserve-3d;
-  transform: rotateX(60deg) rotateZ(-36deg);
+  transform: rotateX(60deg) rotateZ(-36deg) scale(0.9);
+  transform-origin: center center;
 }
 
 .ground,
@@ -121,7 +127,7 @@
   right: 0;
   bottom: 0;
   left: 0;
-  height: 16px;
+  height: clamp(5px, 2.4cqh, 14px);
   transform-origin: top center;
   transform: rotateX(-90deg);
 }
@@ -135,7 +141,7 @@
   left: 2%;
   width: 44%;
   height: 32%;
-  transform: translateZ(26px);
+  transform: translateZ(3.4cqw);
 }
 
 .block-high {
@@ -143,7 +149,7 @@
   left: 54%;
   width: 40%;
   height: 30%;
-  transform: translateZ(78px);
+  transform: translateZ(9cqw);
 }
 
 .slab {
@@ -154,6 +160,7 @@
   background: color-mix(in oklab, var(--color-accent) 24%, var(--color-surface-2));
   border: 2px solid var(--color-accent);
   transform-origin: center center;
+  backface-visibility: visible;
   animation: slab-turn 5.6s cubic-bezier(0.45, 0.05, 0.2, 1) infinite;
   animation-delay: -1.8s;
 }
@@ -165,8 +172,8 @@
 .pawn {
   top: 62%;
   left: 14%;
-  width: 16px;
-  height: 16px;
+  width: clamp(10px, 3.2cqw, 20px);
+  height: clamp(10px, 3.2cqw, 20px);
   background: var(--color-accent);
   animation: pawn-hop 5.6s cubic-bezier(0.45, 0.05, 0.2, 1) infinite;
   animation-delay: -1.8s;
@@ -175,19 +182,19 @@
 .pawn::after {
   content: "";
   position: absolute;
-  inset: 3px;
+  inset: 20%;
   background: var(--color-accent-fg);
 }
 
 @keyframes slab-turn {
   0%,
   18% {
-    transform: translate3d(-8%, 22%, 28px) rotateZ(74deg);
+    transform: translate3d(-8%, 22%, 3.2cqw) rotateZ(74deg);
   }
 
   40%,
   76% {
-    transform: translate3d(10%, -8%, 78px) rotateZ(-6deg);
+    transform: translate3d(10%, -8%, 9cqw) rotateZ(-6deg);
   }
 
   100% {
@@ -198,18 +205,18 @@
 @keyframes pawn-hop {
   0%,
   14% {
-    transform: translate3d(0, 0, 46px);
+    transform: translate3d(0, 0, 3.2cqw);
     opacity: 1;
   }
 
   32% {
-    transform: translate3d(78px, -58px, 140px);
+    transform: translate3d(18cqw, -17cqh, 10cqw);
     opacity: 1;
   }
 
   46%,
   74% {
-    transform: translate3d(168px, -92px, 100px);
+    transform: translate3d(36cqw, -30cqh, 7cqw);
     opacity: 1;
   }
 
@@ -219,7 +226,7 @@
 
   88% {
     opacity: 0;
-    transform: translate3d(0, 0, 46px);
+    transform: translate3d(0, 0, 3.2cqw);
   }
 
   100% {

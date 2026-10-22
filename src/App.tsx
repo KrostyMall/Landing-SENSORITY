@@ -56,16 +56,16 @@ export function App() {
   }
 
   return (
-    <main className="relative min-h-dvh overflow-x-hidden md:h-dvh md:min-h-0 md:overflow-hidden">
+    <main className="relative min-h-dvh overflow-x-hidden lg:h-dvh lg:min-h-0 lg:overflow-hidden">
       <div aria-hidden="true" className="hero-grid pointer-events-none absolute inset-0" />
-      <div className="relative mx-auto flex min-h-dvh w-full max-w-6xl flex-col px-4 py-3 sm:px-6 md:h-full md:min-h-0">
+      <div className="relative mx-auto flex min-h-dvh w-full max-w-6xl flex-col px-4 py-3 sm:px-6 lg:h-full lg:min-h-0">
         <header className="flex h-8 shrink-0 items-center justify-between gap-3">
           <p className="font-display text-xs font-medium tracking-wide sm:text-sm">Project: SENSORITY</p>
           <p className="shrink-0 text-xs tabular-nums text-muted sm:text-sm">3D · 350 ₽</p>
         </header>
 
-        <div className="mt-2 grid flex-1 grid-cols-1 gap-3 md:min-h-0 md:grid-cols-2 md:grid-rows-[minmax(0,1fr)_auto]">
-          <section className="self-center md:col-start-1 md:row-start-1">
+        <div className="mt-2 grid flex-1 grid-cols-1 gap-3 lg:min-h-0 lg:grid-cols-2 lg:grid-rows-[minmax(0,1fr)_auto]">
+          <section className="self-center lg:col-start-1 lg:row-start-1">
             <h1 className="font-display text-2xl leading-none font-medium sm:text-4xl">
               Решаешь пазл, не сбавляя бег
             </h1>
@@ -85,12 +85,12 @@ export function App() {
             </p>
           </section>
 
-          <div className="h-[clamp(15rem,62vw,21rem)] min-h-60 w-full sm:h-80 md:col-start-2 md:row-start-1 md:h-auto md:min-h-0">
+          <div className="h-[clamp(15rem,62vw,21rem)] min-h-60 w-full sm:h-80 lg:col-start-2 lg:row-start-1 lg:h-auto lg:min-h-0">
             <JumpSlice />
           </div>
 
-          <div className="grid gap-3 border-t border-line pt-3 md:col-span-2 md:grid-cols-[1.15fr_0.85fr] md:gap-8">
-            <div className="grid gap-3 sm:grid-cols-[1.2fr_0.8fr] md:grid-cols-1">
+          <div className="grid gap-3 border-t border-line pt-3 lg:col-span-2 lg:grid-cols-[1.15fr_0.85fr] lg:gap-8">
+            <div className="grid gap-3 sm:grid-cols-[1.2fr_0.8fr] lg:grid-cols-1">
               <section>
                 <h2 className="font-display text-xs font-medium text-muted">Как это работает</h2>
                 <ol className="mt-2 grid grid-cols-3 gap-2">

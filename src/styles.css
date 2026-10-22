@@ -69,11 +69,37 @@
   }
 
   .slab {
-    transform: translate3d(10%, -8%, 9cqw) rotateZ(-6deg);
+    transform: translate3d(5%, -5%, 8cqw) rotateZ(-8deg);
   }
 
   .pawn {
-    transform: translate3d(18cqw, -14cqh, 8cqw);
+    transform: translate3d(22cqw, -17cqh, 7cqw);
+  }
+}
+
+@media (max-width: 1023px) {
+  .diorama {
+    perspective: clamp(300px, 105vw, 640px);
+  }
+
+  .stage {
+    inset: 9% 10% 18%;
+    transform: rotateX(56deg) rotateZ(-30deg) scale(0.76);
+  }
+
+  .slab {
+    border-width: 1.5px;
+  }
+
+  .block::after,
+  .slab::after {
+    height: clamp(4px, 2cqh, 9px);
+  }
+}
+
+@media (min-width: 1024px) {
+  .stage {
+    transform: rotateX(58deg) rotateZ(-33deg) scale(0.84);
   }
 }
 
@@ -91,9 +117,9 @@
 
 .stage {
   position: absolute;
-  inset: 8% 6% 14%;
+  inset: 7% 8% 16%;
   transform-style: preserve-3d;
-  transform: rotateX(60deg) rotateZ(-36deg) scale(0.9);
+  transform: rotateX(58deg) rotateZ(-33deg) scale(0.84);
   transform-origin: center center;
 }
 
@@ -137,26 +163,26 @@
 }
 
 .block-low {
-  top: 54%;
-  left: 2%;
-  width: 44%;
-  height: 32%;
-  transform: translateZ(3.4cqw);
+  top: 69%;
+  left: 4%;
+  width: 36%;
+  height: 22%;
+  transform: translateZ(3.5cqw);
 }
 
 .block-high {
-  top: 16%;
-  left: 54%;
-  width: 40%;
-  height: 30%;
-  transform: translateZ(9cqw);
+  top: 8%;
+  left: 62%;
+  width: 31%;
+  height: 25%;
+  transform: translateZ(8cqw);
 }
 
 .slab {
-  top: 30%;
-  left: 30%;
-  width: 36%;
-  height: 18%;
+  top: 43%;
+  left: 33%;
+  width: 29%;
+  height: 14%;
   background: color-mix(in oklab, var(--color-accent) 24%, var(--color-surface-2));
   border: 2px solid var(--color-accent);
   transform-origin: center center;
@@ -170,10 +196,10 @@
 }
 
 .pawn {
-  top: 62%;
-  left: 14%;
-  width: clamp(10px, 3.2cqw, 20px);
-  height: clamp(10px, 3.2cqw, 20px);
+  top: 72%;
+  left: 10%;
+  width: clamp(10px, 3cqw, 18px);
+  height: clamp(10px, 3cqw, 18px);
   background: var(--color-accent);
   animation: pawn-hop 5.6s cubic-bezier(0.45, 0.05, 0.2, 1) infinite;
   animation-delay: -1.8s;
@@ -189,34 +215,34 @@
 @keyframes slab-turn {
   0%,
   18% {
-    transform: translate3d(-8%, 22%, 3.2cqw) rotateZ(74deg);
+    transform: translate3d(-3%, 10%, 3.5cqw) rotateZ(48deg);
   }
 
   40%,
   76% {
-    transform: translate3d(10%, -8%, 9cqw) rotateZ(-6deg);
+    transform: translate3d(5%, -5%, 8cqw) rotateZ(-8deg);
   }
 
   100% {
-    transform: translate3d(-8%, 22%, 3.2cqw) rotateZ(74deg);
+    transform: translate3d(-3%, 10%, 3.5cqw) rotateZ(48deg);
   }
 }
 
 @keyframes pawn-hop {
   0%,
   14% {
-    transform: translate3d(0, 0, 3.2cqw);
+    transform: translate3d(0, 0, 3.5cqw);
     opacity: 1;
   }
 
   32% {
-    transform: translate3d(18cqw, -17cqh, 10cqw);
+    transform: translate3d(18cqw, -15cqh, 8cqw);
     opacity: 1;
   }
 
   46%,
   74% {
-    transform: translate3d(36cqw, -30cqh, 7cqw);
+    transform: translate3d(29cqw, -21cqh, 7cqw);
     opacity: 1;
   }
 
@@ -226,12 +252,12 @@
 
   88% {
     opacity: 0;
-    transform: translate3d(0, 0, 3.2cqw);
+    transform: translate3d(0, 0, 3.5cqw);
   }
 
   100% {
     opacity: 1;
-    transform: translate3d(0, 0, 3.2cqw);
+    transform: translate3d(0, 0, 3.5cqw);
   }
 }
 

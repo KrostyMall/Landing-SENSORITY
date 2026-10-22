@@ -7,6 +7,7 @@ on:
       - "index.html"
       - "assets/**"
       - "favicon.svg"
+      - "favicon.png"
       - "og.jpg"
       - ".nojekyll"
   workflow_dispatch:
@@ -56,12 +57,12 @@ jobs:
           git reset --hard origin/main
 
           cp dist/source.html ./index.html
-          cp dist/favicon.svg dist/og.jpg .
+          cp dist/favicon.svg dist/favicon.png dist/og.jpg .
           touch .nojekyll
 
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html assets favicon.svg og.jpg .nojekyll
+          git add index.html assets favicon.svg favicon.png og.jpg .nojekyll
 
           if git diff --cached --quiet; then
             echo "The checked-in Pages build is already up to date."

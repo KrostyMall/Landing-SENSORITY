@@ -198,7 +198,7 @@
   }
 
   100% {
-    transform: translate3d(-8%, 22%, 28px) rotateZ(74deg);
+    transform: translate3d(-8%, 22%, 3.2cqw) rotateZ(74deg);
   }
 }
 
@@ -231,7 +231,7 @@
 
   100% {
     opacity: 1;
-    transform: translate3d(0, 0, 46px);
+    transform: translate3d(0, 0, 3.2cqw);
   }
 }
 
